@@ -17,12 +17,17 @@ export class ItemsController {
   }
 
   @Get(':id')
-  findOne(@Param() param): string {
-    return `Item ${param.id}`;
+  findOne(@Param('id') id: number): string {
+    return `Item ${id}`;
   }
 
   @Post()
   create(@Body() createItemDto: CreateItemDto): string {
     return `Name: ${createItemDto.name} Desc: ${createItemDto.description}`;
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: number): string {
+    return `Delete ${id}`;
   }
 }
